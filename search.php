@@ -123,19 +123,13 @@
                             <span class='pageNumber'>$currentPage</span>
                          </a>
                        </div>";
-                    }
-
-                 
+                    }                 
 
                     $currentPage++;
                     $pagesLeft--;
                     
                 }
 
-             
-             
-             
-                    
             
             ?>
 

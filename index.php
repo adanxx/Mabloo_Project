@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo "Mabloo" ?></title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+<?php require_once("components/header.php")?>
 
-   <div class="wrapper indexPage">
-        <div class="mainSection">
-            
+    <div class="top-navbar">
+        <div class="inner-wrapper">
+            <ul class="icon-lists">
+                <li><i class="fas fa-bezier-curve"></i></li>
+                <li>
+                    <button type="button" class="btn btn-primary">LOGIN</button>
+                </li>
+            </ul>
+        </div>
+    </div>     
+     
+
+    <div class="wrapper indexPage"> 
+      <div class="mainSection">
             <div class="logoContainer">
                 <img src="assets/img/logo/logo.png" alt="logo_image">
             </div>      
@@ -23,12 +25,9 @@
                 </form>
             
             </div>
-
-          
-
         </div>
-  </div>
 
-    
-</body>
-</html>
+   </div>
+
+
+<?php require_once("components/footer.php")?>
