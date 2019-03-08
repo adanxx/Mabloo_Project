@@ -5,7 +5,7 @@
             <ul class="icon-lists">
                 <li><i class="fas fa-bezier-curve"></i></li>
                 <li>
-                    <button type="button" class="btn btn-primary">LOGIN</button>
+                    <a href="login.php" class="btn btn-primary">LOGIN</a>
                 </li>
             </ul>
         </div>
