@@ -1,4 +1,4 @@
-<?php require_once("components/header.php")?>
+<?php require_once("include/components/header.php")?>
 
     <div class="top-navbar">
         <div class="inner-wrapper">
@@ -30,4 +30,4 @@
    </div>
 
 
-<?php require_once("components/footer.php")?>
+<?php require_once("include/components/footer.php")?>

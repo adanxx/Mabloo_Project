@@ -1,9 +1,7 @@
-<?php
-  
+<?php  
   require_once "include/config.php";
   require_once "include/classes/DomDocumentParser.php";
 
-  
   $alreadyCrawled = array();
   $crawling = array();
   $ImageAlreadyFound = array();
@@ -26,19 +24,17 @@
     global $conn;
     
     $query = $conn->prepare("INSERT INTO sites(url, title, description, keywords)
-                         VALUES(:url, :title, :description, :keywords)");
-        $query->bindParam(":url", $url);
-        $query->bindParam(":title", $title);
-        $query->bindParam(":description", $description);
-        $query->bindParam(":keywords", $keywords);
-   
+                      VALUES(:url, :title, :description, :keywords)");
+    $query->bindParam(":url", $url);
+    $query->bindParam(":title", $title);
+    $query->bindParam(":description", $description);
+    $query->bindParam(":keywords", $keywords);
+  
     if(!$query->execute()){
       echo $query->errorInfo();
     }else{
       return true;
     }
-
-    
   }
 
   function createLink($src, $url){
@@ -62,7 +58,6 @@
     else if((substr($src, 0, 5) !== "https") && (substr($src, 0, 4) !== "http")){
       $src = $src = $scheme . "://" . $host . "/" . $src;
     }
-
     return $src;
   }
 
@@ -79,9 +74,7 @@
     if(!$query->execute()){
       echo $query->errorInfo();
     }
-
     return $query;
-
   }
 
   function getDetails($url){
@@ -134,36 +127,27 @@
     }
 
     $ImageArray = $parser->getImages();
-     foreach ($ImageArray as $img) {
+    foreach ($ImageArray as $img) {
 
-        $src = $img->getAttribute("src");
-        $alt = $img->getAttribute("alt");
-        $title = $img->getAttribute("title");
+      $src = $img->getAttribute("src");
+      $alt = $img->getAttribute("alt");
+      $title = $img->getAttribute("title");
 
-   
-
-        if(!$title && !$alt){
-          continue;
-        }
-        
-          
-        $src = createLink($src, $url);
-
-
-        if(!in_array($src, $ImageAlreadyFound)){
-          
-          $ImageAlreadyFound[]= $src;
-
-          //insert image int db;
-          insertImage($url, $src, $alt, $title);
-        
-        }
-
-
-      
+      if(!$title && !$alt){
+        continue;
       }
+      
+      $src = createLink($src, $url);
 
- 
+      if(!in_array($src, $ImageAlreadyFound)){
+        
+        $ImageAlreadyFound[]= $src;
+
+        //insert image int db;
+        insertImage($url, $src, $alt, $title);
+      
+      }    
+    }
   }
 
   function followlinks($url){
@@ -203,8 +187,6 @@
       //   return;   // TURN ON: for getting "PARTIAL" crawl result bit faster from the webstie 
       // } 
         
-
-
     }
     
     array_shift($crawling); //remove the elment in the first-position
@@ -218,7 +200,7 @@
 
   }
 
-  $startUrl =  "https://unsplash.com/";
+  $startUrl =  "https://unsplash.com/"; // : Link currently used to craw for data:
   followLinks($startUrl);
 
 

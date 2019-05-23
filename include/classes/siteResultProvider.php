@@ -1,6 +1,6 @@
 <?php
 
- class siteResultProvider{
+ class SiteResultProvider{
 
    private $conn;
 

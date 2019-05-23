@@ -1,12 +1,12 @@
 <?php 
     require_once "include/config.php";
-    require_once "include/classes/siteResultProvider.php";
-    require_once "include/classes/imageResultProvider.php";
+    require_once "include/classes/SiteResultProvider.php";
+    require_once "include/classes/ImageResultProvider.php";
 
    if(isset($_GET['term'])){
         $term = $_GET['term']; 
    }else{
-       exit("Missing a search term");
+       die("Missing a search term");
    }
 
    $type= isset($_GET['type']) ? $_GET['type'] : "sites";
@@ -15,7 +15,7 @@
 
 ?>
 
-<?php require_once("components/header.php")?>
+<?php require_once("include/components/header.php")?>
 
 
 <div class="wrapper">
@@ -129,7 +129,6 @@
                     $pagesLeft--;
                     
                 }
-
             
             ?>
 
@@ -139,9 +138,7 @@
             </div>
         </div>
 
-    
     </div>
-
 </div>
 
-<?php require_once("components/footer.php")?>
+<?php require_once("include/components/footer.php")?>

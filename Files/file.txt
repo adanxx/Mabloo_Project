@@ -1,15 +1,15 @@
-The structure of link consiste of 2 part:
+The structure of link's consiste of 2 part:
   scheme : http or https
   host: www.?.com
 
 
-When crawling for link the following 5 cases need to be consider:
+When crawling for link's,  the following 5 cases need to be consider:
 
-  1.  //www.cnn.com  -> convert by removing // and to http://wwww.cnn.com
-  2.  //about/about.php  -> convert by removing / and to http://wwww.cnn.com
+  1.  //www.cnn.com  -> convert by removing // -> to http://wwww.cnn.com
+  2.  //about/about.php  -> convert by removing // -> to http://wwww.cnn.com
   3.  ./about/about.php
   4. ../about/about.php
   5.  about/aboutUs.php
 
 
-Note: Example from the cnn website is used
+Note: Example from the cnn website is currently being used ot extract data.

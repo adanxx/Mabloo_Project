@@ -1,6 +1,6 @@
 <?php
 
- class imageResultProvider{
+ class ImageResultProvider{
 
    private $conn;
 
@@ -9,11 +9,6 @@
     }
 
     public function getNumResults($term){
-
-        // $query = $this->conn->prepare("SELECT count(*) as total 
-        //                                 from images WHERE (title LIKE :term
-        //                                 OR alt LIKE :term)
-        //                                 AND broken = 0");
      
         $query = $this->conn->prepare("SELECT count(*) as total from images WHERE (title LIKE :term OR alt LIKE :term) AND broken = 0");
         
